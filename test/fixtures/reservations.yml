@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_price: 1
+  date_start: 2016-12-21
+  date_end: 2016-12-21
+
+two:
+  total_price: 1
+  date_start: 2016-12-21
+  date_end: 2016-12-21
