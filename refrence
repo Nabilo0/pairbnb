@@ -1,0 +1,153 @@
+
+<% if signed_in? %>
+      Signed in as: <%= current_user.email %>
+      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign in', sign_in_path %>
+    <% end %>
+
+    <div id="flash">
+      <% flash.each do |key, value| %>
+    <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+================
+
+rails generate clearance:install
+Running via Spring preloader in process 9495
+Expected string default value for '--jbuilder'; got true (boolean)
+      create  config/initializers/clearance.rb
+      insert  app/controllers/application_controller.rb
+      insert  app/models/user.rb
+      create  db/migrate/20161222083424_add_clearance_to_users.rb
+
+*******************************************************************************
+
+Next steps:
+
+1. Configure the mailer to create full URLs in emails:
+
+    # config/environments/{development,test}.rb
+    config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+    In production it should be your app's domain name.
+
+2. Display user session and flashes. For example, in your application layout:
+
+    <% if signed_in? %>
+      Signed in as: <%= current_user.email %>
+      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign in', sign_in_path %>
+    <% end %>
+
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
+3. Migrate:
+
+    rake db:migrate
+
+
+
+<%= form_for @user do |u| %>
+	<%= u.text_field :first_name %>
+	<%= u.text_field :last_name %>
+	<%= u.text_field :email %>
+	<%= u.text_field :password %>
+	<%= u.submit 'Create' %>
+	<% end %>
+
+$ lsof -wni tcp:3000
+Then, use the number in the PID column to kill the process:
+$ kill -9 PID
+
+	<div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+
+
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Pairbnb" src="...">
+      </a>
+    </div>
+  </div>
+</nav>
+<div class="row">
+    <div class="col-sm-4">
+    </div>
+
+        <div class="col-sm-4"><form>
+          <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+  
+        <button type="submit" class="btn btn-default">Log in</button>
+            </form>
+        </div>
+
+    <div class="col-sm-4">
+    </div>
+
+  </div>
+</div>
+
+
+
+ <div class="container">
+  <!-- <h2>Modal Example</h2> -->
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Sign Up</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign Up</h4>
+        </div>
+        <div class="modal-body">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+        <label for="exampleInputEmail1">First Name</label>
+        <input type="email" class="form-control" id="InputFirst" placeholder="First Name">
+        <label for="exampleInputEmail1">Last Name</label>
+        <input type="email" class="form-control" id="InputLastName" placeholder="Last Name">
+        <label for="exampleInputEmail1">Password</label>
+        <input type="email" class="form-control" id="InputPassword" placeholder="Password">
+
+         </div>
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Sign Up</button>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
