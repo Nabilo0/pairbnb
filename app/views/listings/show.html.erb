@@ -1,0 +1,20 @@
+<% if signed_in? -%>
+
+	<h3>Hello <%= current_user.first_name %> This is your Listing Page</h3>
+	<!-- Your First Name: <%= current_user.first_name %><br>
+	Last Name:	<%= current_user.last_name %><br>
+ -->	Last Name:	<%= current_user.email %><br>
+ 	<%= link_to "Add Listing", new_listing_path %>
+
+ 	<% @listing.each do |t| %>
+		<tr>
+		<td><%= t.property_name%></td>
+		<td><%= t.stars%></td>
+		<td><%= t.address%></td>
+		<td><%= t.price%></td>
+		</tr>
+		<% end %>
+ 
+<% else -%>
+	<%= link_to t(".sign_in"), sign_in_path %>
+<% end -%>

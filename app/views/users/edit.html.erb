@@ -1,0 +1,32 @@
+<% if signed_in? -%>
+
+	<h3>Hello <%= current_user.first_name %> This is your EditProfile Page</h3>
+	Your First Name: <%= current_user.first_name %><br>
+	Last Name:	<%= current_user.last_name %><br>
+	Last Name:	<%= current_user.email %><br>
+
+		 	<%= link_to "Delete Account", current_user, method: :delete, data: {confirm: "You will Disapper Bro"} %>
+
+ 
+   <%= form_for @user, id: "update_link",remote: true do |u| %>
+<div class="form-control">
+<%= u.label :first_name %>
+<%= u.text_field :first_name, value:current_user.first_name  %>
+</div>
+<div class="form-control">
+<%= u.label :last_name %>
+<%= u.text_field :last_name, value:current_user.last_name %>
+</div>
+<div class="form-control">
+<%= u.label :email %>
+<%= u.text_field :email, value:current_user.email %>
+</div>
+
+<div class="modal-title">
+<%= u.submit %>
+</div>
+<% end %>
+
+<% else -%>
+	<%= link_to t(".sign_in"), sign_in_path %>
+<% end -%>

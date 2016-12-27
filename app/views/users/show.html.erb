@@ -1,0 +1,15 @@
+<% if signed_in? -%>
+ 	<%= link_to "EDIT HERE", edit_user_path(current_user) %><br>
+<!-- , id: "edit_link", remote: true -->
+ 	<%= link_to "LISTING PAGE", listing_path(current_user) %>
+
+ <h3>Hello <%= current_user.first_name %> This is your Profile Page</h3>
+Your First Name: <%= current_user.first_name %><br>
+            Last Name:  <%= current_user.last_name %><br>
+            Last Name:  <%= current_user.email %>
+        <% else -%>
+      <%= link_to t(".sign_in"), sign_in_path %>
+    <% end -%>
+
+
+
