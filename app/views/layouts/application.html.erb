@@ -43,14 +43,15 @@
       <img alt="PairBnB" src="...">
       </a>
     </div>
-
+      <% if signed_in? %>
+      <div class="navbar-header">
+        <%= link_to "MyProfile", current_user, class: "navbar-brand" %>
+      </div>
 
       <div class="navbar-header">
-        <%= link_to "UserProfile", current_user, class: "navbar-brand" %>
+        <%= link_to "Add Listing", new_listings_path, class: "navbar-brand" %>
       </div>
-    
-
-  </div>
+ <% end %>
 </nav>
   
   <!-- link sign in  -->

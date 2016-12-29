@@ -1,0 +1,45 @@
+<% if signed_in? -%>
+
+
+	<h3>Hello <%= current_user.first_name %> This is your Edit Listing Page</h3>
+  	Email:	<%= current_user.email %><br>
+  	Id :    <%= current_user.id%><br>
+
+<%= form_for [current_user, @listing], :html => {:multipart => true} do |u| %>
+
+<div class="form-control">
+
+ <%= u.file_field :avatars, multiple: true %>
+
+</div>    
+
+<div class="form-control">
+<%= u.label :property_name %>
+<%= u.text_field :property_name %>
+</div>
+<div class="form-control">
+<%= u.label :stars %>
+<%= u.text_field :stars %>
+</div>
+<div class="form-control">
+<%= u.label :address %>
+<%= u.text_field :address %>
+</div>
+<div>
+<%= u.label :room_number %>
+<%= u.text_field :room_number %>
+</div>
+<div class="form-control">
+<%= u.label :price %>
+<%= u.text_field :price %>
+</div>
+
+<div class="btn-primary">
+<%= u.submit %>
+</div>
+<% end %> 
+   
+
+<% else -%>
+	<%= link_to t(".sign_in"), sign_in_path %>
+<% end -%>

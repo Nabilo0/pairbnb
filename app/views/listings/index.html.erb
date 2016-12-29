@@ -4,13 +4,19 @@
 	<!-- Your First Name: <%= current_user.first_name %><br>
 	Last Name:	<%= current_user.last_name %><br>
  -->	Last Name:	<%= current_user.email %><br>
- 
+ <br>
 
 
- 	<% @listing.each do |t| %>
-		<tr>
-		<td>User ID: <%= t.user_id%></br></td>
-		<td>User Name :<%= t.user.first_name%></td></br>
+
+ 	<%= @listing.each do |t| %>
+
+ 	<tr>
+ <%if current_user == @user %>	
+<td>User ID: <%= t.user_id%></br><%= link_to 'Edit',edit_user_listing_path(user_id: @user.id, id: t.id) %><br>
+<%= link_to 'Delete',  { action: :destroy, id: t.id }, method: :delete, data: { confirm: 'Are you sure?' } %><br></td>
+		<% end %>
+
+<td>User Name :<%= t.user.first_name%></td></br>
 		<td>Property Name: <%= t.property_name%></td></br>
 		<td>Stars        : <%= t.stars%></td></br>
 		<td>The address  : <%= t.address%></td></br>
@@ -19,6 +25,9 @@
 		</tr>
 		<% end %>
  
+  <%= will_paginate @listing %>
+
 <% else -%>
 	<%= link_to t(".sign_in"), sign_in_path %>
 <% end -%>
+ 

@@ -3,6 +3,7 @@ class UsersController < Clearance::UsersController
 						# ApplicationController
 	before_action :require_login, only: [:show] 
 
+
 	def require_login
 		unless signed_in?
 			flash[:error] = "You must be logged in to access this section"
@@ -11,6 +12,8 @@ class UsersController < Clearance::UsersController
 	end
 
 	def show
+		@user = User.find_by_id(params[:id])
+		@listing = @user.listings.paginate(:page => params[:page], per_page: 2)
 	end
 
 # 	def index
@@ -65,10 +68,10 @@ class UsersController < Clearance::UsersController
 			private
 
 			def user_params_edit
-				params.require(:user).permit(:first_name, :last_name, :email)
+				params.require(:user).permit(:first_name, :last_name, :email, :identity, :address, :avatar )
 			end
 			def user_params
-				params.require(:user).permit(:first_name, :last_name, :email, :password)
+				params.require(:user).permit(:first_name, :last_name, :email, :password, :avatar)
 			end
 
 end

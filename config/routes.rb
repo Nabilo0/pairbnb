@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :listings, only: [:new, :show, :create, :edit, :update]  
-  resources :users, only: [:show, :update, :create, :edit, :destroy]
+  resource :listings, only: [:new]
+  resources :users, only: [:show, :update, :create, :edit, :destroy] do
+    resources :listings, only: [:index, :show, :create, :edit, :update, :destroy]
+  end
     # resources :users, only: :show
 
    root "static_pages#home"

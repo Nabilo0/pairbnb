@@ -6,3 +6,6 @@ class ChangePasswordRequiredForUesrs < ActiveRecord::Migration
   
   end
 end
+
+
+# aske about change_column_null :users , encrypted_password, true

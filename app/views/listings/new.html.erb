@@ -1,9 +1,10 @@
-<% if signed_in? -%>
+
+<% if current_user  -%>
 
 	<h3>Hello <%= current_user.first_name %> This is your Add Listing Page</h3>
   	Last Name:	<%= current_user.email %><br>
  
-   <%= form_for @listing do |u| %>
+   <%= form_for [current_user, @listing] do |u| %>
 <div class="form-control">
 <%= u.label :property_name %>
 <%= u.text_field :property_name %>
@@ -24,11 +25,21 @@
 <%= u.label :price %>
 <%= u.text_field :price %>
 </div>
+<div class="form-group">
+ <%= u.check_box :is_smoker %> Smoker
+</div>
+<div class="form-group">
+ <%= u.check_box :is_internet %> Internet
+</div>
+ <div class="form-group">
+ <%= u.check_box :is_pet %> Pet
+</div>
+
 <div class="modal-title">
 <%= u.submit %>
 </div>
-<% end %>
 
-<% else -%>
-	<%= link_to t(".sign_in"), sign_in_path %>
-<% end -%>
+<% end %>
+<%else %>
+      <%= link_to t(".sign_in"), sign_in_path %>
+<% end %>
